@@ -24,10 +24,10 @@ body {
 .discription{
   color: white;
   position: absolute;
-  top: 70%;
+  top: 80%;
   left: 50%;
-  transform: translate(-50%,-70%);
-  font-size: 50px;
+  transform: translate(-50%,-80%);
+  font-size: 30px;
   white-space: nowrap;
   text-shadow: 7px 7px 10px black;
   cursor: default;
