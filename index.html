@@ -1,37 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="logo2.png">
+  <meta charset="UTF-8" />
+  <title>Countdown to 15 May</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url(Sappha.jpg) no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    #countdown {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-    <div class="BG">
-      
-      <div class="logo">
-        <img src="logo2.png" class="logo">
-    </div>
-    <div class="title">
-        <h1>Valentine's day<br></h1>
-    </div>
-    </div>
-    <div class="text">
-      <h1>0 Day left.</h1>
-    </div>
-    <div class="discription">
-      <h1>Before Departing<br>M.3/1</h1>
-    </div>
-        
-        
-            
 
+  <div class="overlay">
+    <h1>Countdown Until New Semester</h1>
+    <div id="countdown">Loading...</div>
+  </div>
 
-            <div class="heart"></div>
+  <script>
+    const now = new Date();
+    const targetYear = now.getMonth() > 4 || (now.getMonth() === 4 && now.getDate() > 15)
+      ? now.getFullYear() + 1
+      : now.getFullYear();
 
-            <footer>
-              <p>&copy; 2024 Valentine's Day Website</p>
-          </footer>
-      </body>
+    const targetDate = new Date(`${targetYear}-05-15T00:00:00`);
+
+    function updateCountdown() {
+      const currentTime = new Date();
+      const diff = targetDate - currentTime;
+
+      if (diff <= 0) {
+        document.getElementById("countdown").textContent = "🎉 It's 15 May 00:00 AM!";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("countdown").textContent =
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+
+</body>
 </html>
