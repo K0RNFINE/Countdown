@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Countdown to 15 May</title>
+  <title>Countdown to 16 May</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -45,18 +45,18 @@
 
   <script>
     const now = new Date();
-    const targetYear = now.getMonth() > 4 || (now.getMonth() === 4 && now.getDate() > 15)
+    const targetYear = now.getMonth() > 4 || (now.getMonth() === 4 && now.getDate() > 16)
       ? now.getFullYear() + 1
       : now.getFullYear();
 
-    const targetDate = new Date(`${targetYear}-05-15T00:00:00`);
+    const targetDate = new Date(`${targetYear}-05-16T00:00:00`);
 
     function updateCountdown() {
       const currentTime = new Date();
       const diff = targetDate - currentTime;
 
       if (diff <= 0) {
-        document.getElementById("countdown").textContent = "🎉 It's 15 May 00:00 AM!";
+        document.getElementById("countdown").textContent = "New Semister Started";
         return;
       }
 
